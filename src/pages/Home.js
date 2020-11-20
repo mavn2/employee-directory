@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
-import Nav from '../components/Nav';
-import Table from '../components/EmployeeTable'
+import EmployeeTable from '../components/EmployeeTable'
 
 function Home() {
 
@@ -11,7 +10,6 @@ function Home() {
   useEffect(() => {
     API.getUsers() 
     .then( res => {
-      console.log(res.data.results)
       setList(res.data.results)
     })
     .catch(err => console.log(err))
@@ -19,7 +17,11 @@ function Home() {
 
   //imported all html/bootstrap components here, but might make sense to move some to App-header, nav
   return(
-    <div>test</div>
+    <div>
+      <EmployeeTable 
+        data={list}
+      />
+    </div>
   )
 }
 
