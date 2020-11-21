@@ -18,6 +18,11 @@ export function EmployeeTable({data}){
         </tr>
       </thead>
       <tbody>
+      {data.map(employee => (
+        <EmployeeTableItem
+          phone={employee.phone}
+        />
+      ))}
       </tbody>
     </Table>
   )

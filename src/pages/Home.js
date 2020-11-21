@@ -5,7 +5,7 @@ import EmployeeTable from '../components/EmployeeTable'
 
 function Home() {
 
-  const [list, setList] = useState({})
+  const [list, setList] = useState([])
   //get from api, populate display components
   useEffect(() => {
     API.getUsers() 
