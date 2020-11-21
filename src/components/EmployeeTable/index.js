@@ -3,7 +3,6 @@ import Table from 'react-bootstrap/Table';
 import EmployeeTableItem from "../../components/TableItem"
 //Takes in props, destructures props object as it is passed in
 export function EmployeeTable({data}){
-  console.log(data)
   console.log(data[1])
 
   return (
@@ -18,11 +17,16 @@ export function EmployeeTable({data}){
         </tr>
       </thead>
       <tbody>
-      {data.map(employee => (
+      {data.map(employee => {
+        return (
         <EmployeeTableItem
+          number={data.indexOf(employee) + 1}
+          image={employee.picture.thumbnail}
+          name={`${employee.name.first} ${employee.name.last}`}
           phone={employee.phone}
+          dob={employee.dob.date.slice(0, 10)}
         />
-      ))}
+      )})}
       </tbody>
     </Table>
   )

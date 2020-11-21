@@ -11,7 +11,7 @@ const EmployeeTableItem= ({
   return (
     <tr>
       <td>{number}</td>
-      <td><image src={image} alt={name}/></td>
+      <td><img src={image} alt={name}/></td>
       <td>{name}</td>
       <td>{phone}</td>
       <td>{dob}</td>
