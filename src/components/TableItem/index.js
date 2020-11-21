@@ -1,6 +1,7 @@
 import React from "react";
 
-//Returns a row for the employee table based on props
+// Returns a row for the employee table based on props
+// Destructuring props as they're passed in results in cleaner code
 const EmployeeTableItem= ({
   number,
   image,
