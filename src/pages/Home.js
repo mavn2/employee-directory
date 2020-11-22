@@ -25,6 +25,7 @@ function Home() {
   }
 
   // Returns app's main page/components
+  // User objects passed to UserTable are given two additional keys/values
   return(
     <div>
       <SearchBar
@@ -33,7 +34,13 @@ function Home() {
       />
       <UserTable 
       filter={search}
-      data={rawList.map(user => {return { ...user, sortIndex: rawList.indexOf(user)}})}
+      data={rawList.map(user => {
+        return { 
+          ...user, 
+          sortIndex: rawList.indexOf(user), 
+          fullName: `${user.name.first} ${user.name.last}`,
+        }
+      })}
       />
     </div>
   )

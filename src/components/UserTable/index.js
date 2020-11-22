@@ -51,15 +51,15 @@ const defaultSort = () => {
         </tr>
     </thead>
       <tbody>
-        {displayData.map(employee => 
-          (
+        {displayData.map(user => 
+            (
             <UserTableItem
-              key={employee.login.uuid}
-              number={data.indexOf(employee) + 1}
-              image={employee.picture.medium}
-              name={`${employee.name.first} ${employee.name.last}`}
-              phone={employee.phone}
-              dob={employee.dob.date.slice(0, 10)}
+              key={user.login.uuid}
+              number={user.sortIndex + 1}
+              image={user.picture.medium}
+              name={user.fullName}
+              phone={user.phone}
+              dob={user.dob.date.slice(0, 10)}
             />
           ))
         }
