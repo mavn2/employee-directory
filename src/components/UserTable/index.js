@@ -51,17 +51,21 @@ const defaultSort = () => {
         </tr>
     </thead>
       <tbody>
-        {displayData.map(user => 
-            (
-            <UserTableItem
-              key={user.login.uuid}
-              number={user.sortIndex + 1}
-              image={user.picture.medium}
-              name={user.fullName}
-              phone={user.phone}
-              dob={user.dob.date.slice(0, 10)}
-            />
-          ))
+        {displayData.map(user => {
+          if(user.fullName.includes(filter)){
+            return (
+              <UserTableItem
+                key={user.login.uuid}
+                number={user.sortIndex + 1}
+                image={user.picture.medium}
+                name={user.fullName}
+                phone={user.phone}
+                dob={user.dob.date.slice(0, 10)}
+              />
+            )
+          }
+          return null;
+          })
         }
       </tbody>
     </Table>
