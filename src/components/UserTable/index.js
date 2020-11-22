@@ -24,20 +24,24 @@ const sortByName = () => {
       if(a.name.first > b.name.first){
         return 1;
       };
+      if(a.name.first === b.name.first){
+        if(a.name.last < b.name.last){
+          return -1;
+        }
+        if(a.name.last > b.name.last){
+          return 1
+        }
+      }
       return 0;
-      }))
+    }))
     );
     setSortState("name")
 };
 
-
-
-const defaultSort = () => {
-  setDisplayData(displayData.sort((a, b) => {return a.sortIndex - b.sortIndex}));
-  setSortState("none")
-  console.log(displayData)
-}
-
+  const defaultSort = () => {
+    setDisplayData(displayData.sort((a, b) => {return a.sortIndex - b.sortIndex}));
+    setSortState("none")
+  };
 
   return (
     <Table>
