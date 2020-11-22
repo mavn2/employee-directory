@@ -13,30 +13,17 @@ function Home() {
     API.getUsers() 
     .then( res => {
       setRawList(res.data.results)
-      setDisplayList(res.data.results)
     })
     .catch(err => console.log(err))
   }, [])
 
-  // Stateful array to contain (potentially) filtered data, intended for display
-  const [displayList, setDisplayList] = useState(rawList);
-
   //imported all html/bootstrap components here, but might make sense to move some to App-header, nav
   return(
-    <Table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>DOB</th>
-      </tr>
-    </thead>
+    <div>
       <EmployeeTable 
-      data={displayList}
+      data={rawList.map(employee => {return { ...employee, sortIndex: rawList.indexOf(employee)}})}
       />
-    </Table>
+    </div>
   )
 }
 
