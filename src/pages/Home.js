@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import API from '../utils/API';
-import Table from 'react-bootstrap/Table';
-import Jumbotron from '../components/Jumbotron';
+import SearchBar from '../components/SearchBar'
 import EmployeeTable from '../components/EmployeeTable'
 
 function Home() {
@@ -20,6 +19,7 @@ function Home() {
   //imported all html/bootstrap components here, but might make sense to move some to App-header, nav
   return(
     <div>
+      <SearchBar />
       <EmployeeTable 
       data={rawList.map(employee => {return { ...employee, sortIndex: rawList.indexOf(employee)}})}
       />
