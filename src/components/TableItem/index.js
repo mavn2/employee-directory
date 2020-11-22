@@ -2,7 +2,7 @@ import React from "react";
 
 // Returns a row for the employee table based on props
 // Destructuring props as they're passed in results in cleaner code
-const EmployeeTableItem= ({
+const UserTableItem= ({
   number,
   image,
   name,
@@ -20,4 +20,4 @@ const EmployeeTableItem= ({
   )
 }
 
-export default EmployeeTableItem;
+export default UserTableItem;

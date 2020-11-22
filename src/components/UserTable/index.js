@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import EmployeeTableItem from "../../components/TableItem";
+import UserTableItem from "../TableItem";
 
 // Takes in props, destructures props object as it is passed in
 // In line 20 on, array.map() method is used to isolate relevant components and create an array
 // of JSX components that are displayed on the page
-export function EmployeeTable({data}){
+export function UserTable({data, filter}){
 // State to store data for sorting/presentation
 const [displayData, setDisplayData] = useState([]);
 // Track sort type/status
 const [sortState, setSortState] = useState("none")
+console.log(filter)
 
 useEffect(() => {
   setDisplayData(data)
@@ -52,7 +53,7 @@ const defaultSort = () => {
       <tbody>
         {displayData.map(employee => 
           (
-            <EmployeeTableItem
+            <UserTableItem
               key={employee.login.uuid}
               number={data.indexOf(employee) + 1}
               image={employee.picture.medium}
@@ -67,4 +68,4 @@ const defaultSort = () => {
   )
 }
 
-export default EmployeeTable;
+export default UserTable;

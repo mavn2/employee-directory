@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import API from '../utils/API';
 import SearchBar from '../components/SearchBar'
-import EmployeeTable from '../components/EmployeeTable'
+import UserTable from '../components/UserTable'
 
 function Home() {
-  //Stateful array used to store clean 'employee' data from API
+  // Stateful array used to store clean 'user' data from API
   const [rawList, setRawList] = useState([])
+  // Stateful string to hold user search value
+  const [search, setSearch] = useState("")
 
   // Get data from API and update above list
   useEffect(() => {
@@ -16,12 +18,22 @@ function Home() {
     .catch(err => console.log(err))
   }, [])
 
-  //imported all html/bootstrap components here, but might make sense to move some to App-header, nav
+  // Handles user inputs in search bar
+  const handleInputChange = event => {
+    // Update search state to reflect user input
+    setSearch(event.target.value)
+  }
+
+  // Returns app's main page/components
   return(
     <div>
-      <SearchBar />
-      <EmployeeTable 
-      data={rawList.map(employee => {return { ...employee, sortIndex: rawList.indexOf(employee)}})}
+      <SearchBar
+      search={search}
+      handleInputChange={handleInputChange}
+      />
+      <UserTable 
+      filter={search}
+      data={rawList.map(user => {return { ...user, sortIndex: rawList.indexOf(user)}})}
       />
     </div>
   )
