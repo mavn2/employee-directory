@@ -6,7 +6,9 @@ import EmployeeTableItem from "../../components/TableItem";
 // In line 20 on, array.map() method is used to isolate relevant components and create an array
 // of JSX components that are displayed on the page
 export function EmployeeTable({data}){
+// State to store data for sorting/presentation
 const [displayData, setDisplayData] = useState([]);
+// Track sort type/status
 const [sortState, setSortState] = useState("none")
 
 useEffect(() => {
@@ -27,19 +29,20 @@ const sortByName = () => {
     setSortState("name")
 };
 
-/* const defaultSort = () => {
-  setDisplayData();
+
+
+const defaultSort = () => {
+  setDisplayData(displayData.sort((a, b) => {return a.sortIndex - b.sortIndex}));
   setSortState("none")
   console.log(displayData)
 }
- */
 
 
   return (
     <Table>
       <thead>
         <tr>
-          <th><button>#</button></th>
+          <th><button onClick={()=>defaultSort()}>#</button></th>
           <th>Image</th>
           <th><button onClick={() => sortByName()}>Name</button></th>
           <th>Phone</th>
