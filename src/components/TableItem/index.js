@@ -1,23 +1,21 @@
-import React from "react";
+import React from 'react';
 
 // Returns a row for the employee table based on props
 // Destructuring props as they're passed in results in cleaner code
-const UserTableItem= ({
+const UserTableItem = ({
   number,
   image,
   name,
   phone,
-  dob
-}) => {
-  return (
-    <tr>
-      <td>{number}</td>
-      <td><img src={image} alt={name}/></td>
-      <td>{name}</td>
-      <td>{phone}</td>
-      <td>{dob}</td>
-    </tr>
-  )
-}
+  dob,
+}) => (
+  <tr>
+    <td>{number}</td>
+    <td><img src={image} alt={name} /></td>
+    <td>{name}</td>
+    <td>{phone}</td>
+    <td>{dob}</td>
+  </tr>
+);
 
 export default UserTableItem;
