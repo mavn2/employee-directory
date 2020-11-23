@@ -5,7 +5,7 @@ import Header from './components/Header';
 function App() {
   return (
     <div>
-      <Header title="User Database" />
+      <Header title="User Directory" />
       <Home />
     </div>
   );
